@@ -9,7 +9,7 @@ class Animal {
 	}
 
 	makeSound(){
-		console.log(`${this._species} makes a sound`);
+		console.log(`The ${this._species} makes a sound`);
 	}
 }
 
@@ -24,7 +24,13 @@ class Cat extends Animal {
 		console.log('purr');
 	}
 }
+const myCat = new Cat("Siamese");
+myCat.makeSound(); // Output: The Siamese makes a sound
+myCat.purr(); // Output: purr
 
+const myDog = new Dog("Golden Retriever");
+myDog.makeSound(); // Output: The Golden Retriever makes a sound
+myDog.bark(); // Output: woof
 // Do not change the code below this line
 window.Animal = Animal;
 window.Dog = Dog;
