@@ -24,6 +24,8 @@ class Dog extends Animal{
 		console.log('woof');
 	}
 }
+
+
 // Do not change the code below this line
 window.Animal = Animal;
 window.Dog = Dog;
