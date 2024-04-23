@@ -1,29 +1,41 @@
 //complete this code
-class Animal{
-	constructor(species){
-		this._species = species;
-	}
+function Animal(specie) {
+	this._species = specie;
 
-	get species(){
-		return this._species;
-	}
+	Object.defineProperty(this,'species',{
+		get:function () {
+			return this._species;
+		}
+	});   
+} 
 
-	makeSound(){
-		console.log(`The ${this._species} makes a sound`);
-	}
+Animal.prototype.makeSound = function () {
+	console.log(`The ${this._species} makes a sound`);
+} 
+
+function Cat(params) {
+	Animal.call(this,params);
 }
 
-class Cat extends Animal{
-	purr(){
-		console.log('purr');
-	}
+Cat.prototype = Object.create(Animal.prototype);
+Cat.prototype.constructor = Cat;
+
+Cat.prototype.purr = function () {
+	console.log('purr');
 }
 
-class Dog extends Animal{
-	bark(){
-		console.log('woof');
-	}
+
+function Dog(params) {
+	Animal.call(this,params);
 }
+
+Dog.prototype = Object.create(Animal.prototype);
+Dog.prototype.constructor = Dog;
+
+Dog.prototype.bark = function () {
+	console.log('woof');
+}
+
 
 
 // Do not change the code below this line
